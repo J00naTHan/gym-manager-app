@@ -2,8 +2,7 @@ from rest_framework import serializers
 from .models import Cliente
 
 
-class ClienteSerializer(serializers.HyperlinkedModelSerializer):
+class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
         fields = ['email', 'nome', 'sobrenome', 'ativo', 'is_staff']
-        read_only_fields = ['email', 'nome', 'sobrenome', 'ativo', 'is_staff']
