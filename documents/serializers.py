@@ -8,6 +8,12 @@ class PlanilhaSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class SendPlanilhaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Planilha
+        fields = ['nome', 'cliente', 'exercicios', 'duracao', 'realizada']
+
+
 class AvaliacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Avaliacao

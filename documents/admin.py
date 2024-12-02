@@ -15,17 +15,7 @@ class CustomPlanilhaAdmin(admin.ModelAdmin):
 @admin.register(Avaliacao)
 class CustomAvaliacaoAdmin(admin.ModelAdmin):
     fieldsets = [
-        (
-            None,
-            {
-                'fields': [('cliente', 'encarregado'),]
-            }
-        ),
-        (
-            'Conteúdo',
-            {
-                'fields': ['conteudo', 'infoAdicional']
-            }
-        ),
+        (None, {'fields': [('cliente', 'encarregado')]}),
+        ('Conteúdo', {'fields': ['imagem', ('conteudo', 'infoAdicional')]}),
     ]
     readonly_fields = ['data']

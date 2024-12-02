@@ -19,10 +19,15 @@ class Planilha(models.Model):
 
 
 class Avaliacao(models.Model):
-    conteudo = models.CharField(max_length=10000)
+    class Meta:
+        verbose_name = 'avaliação'
+        verbose_name_plural = 'avaliações'
+
+    imagem = models.ImageField(blank=True, null=True, upload_to='uploads/')
+    conteudo = models.CharField(blank=True, null=True, max_length=10000)
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT, related_name='cliente_avaliacao')
     encarregado = models.ForeignKey(Cliente, on_delete=models.PROTECT, related_name='professor_avaliacao')
-    infoAdicional = models.CharField(max_length=500)
+    infoAdicional = models.CharField(blank=True, null=True, max_length=500)
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

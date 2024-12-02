@@ -7,4 +7,4 @@ from .serializers import ClienteSerializer
 class ClientViewSet(ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
